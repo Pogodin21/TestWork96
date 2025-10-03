@@ -1,4 +1,4 @@
-@import "./styles/variables";
+@import './styles/variables';
 
 /* === Reset === */
 * {
@@ -14,11 +14,24 @@ body {
 }
 
 body {
-  font-family:system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 16px;
   line-height: 1.5;
   background-color: $color-bg;
   color: $color-text;
+}
+
+main {
+  flex: 1;
 }
 
 /* === Links === */
@@ -45,8 +58,7 @@ img {
 
 /* === Container === */
 .container {
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 1rem; 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
-

@@ -33,7 +33,7 @@ export default function Header() {
         <div className="container">
           <div className={styles.branding__inner}>
             <h1 className={styles.branding__logo}>Abelohost Shop.</h1>
-            <div className={styles.branding__banner}>600 x 7</div>
+            <div className={styles.branding__banner}>600 x 70</div>
           </div>
         </div>
       </div>
