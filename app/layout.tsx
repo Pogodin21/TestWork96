@@ -1,4 +1,4 @@
-import './globals.scss';
+import '../app/styles/globals.scss';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import Footer from '@/components/Footer';
