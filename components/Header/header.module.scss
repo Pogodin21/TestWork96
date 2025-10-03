@@ -1,0 +1,80 @@
+@import '../../app/styles/variables';
+
+.header {
+  width: 100%;
+  background: $color-header-bg;
+  color: $color-header-text;
+}
+
+/* === Top bar === */
+.topbar {
+  background: $color-topbar-bg;
+  padding: 0.35rem 1rem;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+/* === Branding === */
+.branding {
+  border-bottom: $color-accent solid 3px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+  &__logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  &__banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 600px;
+    height: 70px;
+    background: $color-banner-bg;
+  }
+}
+
+/* === Menu === */
+.menu {
+  gap: 2rem;
+  background: #fff;
+  padding: 0.75rem;
+  box-shadow: 0 2px 6px $color-shadow;
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    color: $color-text;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
