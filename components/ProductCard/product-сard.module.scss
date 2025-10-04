@@ -8,10 +8,17 @@
   margin-bottom: 35px;
 
   &__image {
-    width: 85%;;
+     position: relative; 
+    width: 85%;
     height: 70%;
-    background: #f0f0f0;
+    background: inherit;
     margin: 20px;
+    overflow: hidden; 
+  }
+
+   &__imageItem {
+    object-fit: contain; 
+    object-position: center; 
   }
 
   &__info {
