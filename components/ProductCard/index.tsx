@@ -1,5 +1,6 @@
 import styles from './product-сard.module.scss';
 import { Product } from '@/lib/api/types';
+import { useAuthStore } from '@/store/auth';
 import Image from 'next/image';
 
 type ProductCardProps = {
@@ -7,12 +8,15 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { user } = useAuthStore();
   const { title, price, category, thumbnail } = product;
 
   return (
-    <article className={styles.product}>
+    <article
+      className={styles.product}
+    >
       <div className={styles.product__image}>
-         <Image
+        <Image
           src={thumbnail}
           alt={title}
           fill
@@ -25,6 +29,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className={styles.product__category}>{category.toUpperCase()}</p>
         <p className={styles.product__price}>{`$${price}`}</p>
       </div>
+      {user && <button className={styles.product__addBtn}>Add to cart</button>}
     </article>
   );
 }

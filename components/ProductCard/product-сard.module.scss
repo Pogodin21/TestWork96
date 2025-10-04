@@ -6,24 +6,58 @@
   text-align: center;
   border: #0000001a solid 1px;
   margin-bottom: 35px;
+  transition: all 0.3s ease;
+  background-color: #fff;
 
   &__image {
-     position: relative; 
+    position: relative;
     width: 85%;
     height: 70%;
-    background: inherit;
-    margin: 20px;
-    overflow: hidden; 
+    margin: 10px;
+    overflow: hidden;
   }
 
-   &__imageItem {
-    object-fit: contain; 
-    object-position: center; 
+  &__imageItem {
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.3s ease;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 2px;
+    align-items: center;
+    position: relative;
+  }
+
+  &__price {
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+  }
+
+  &__addBtn {
+    border: 1px solid #00000040;
+    background-color: transparent;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+
+    width: 80%;
+  }
+
+  &:hover {
+    .product__imageItem {
+      transform: scale(1.05);
+    }
+  }
+
+  &__addBtn:hover {
+    background-color: #00000008; 
+    border-color: #00000060;
   }
 }

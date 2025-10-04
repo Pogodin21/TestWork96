@@ -2,28 +2,42 @@
 
 import Link from 'next/link';
 import styles from './header.module.scss';
+import { useAuthStore } from '@/store/auth';
 
 export default function Header() {
+  const { user, logout } = useAuthStore();
+  
   return (
     <header className={styles.header}>
       <div className={styles.topbar}>
         <div className="container">
           <div className={styles.topbar__inner}>
             <div className={styles.topbar__left}>
-              <a href="tel:+021955184" >📞 +021 95-51-84</a>
-              <a href="mailto:shop@abelohost.com" >📧 shop@abelohost.com</a>
-              <a
-                href="https://maps.app.goo.gl/AT2xC49X5oqUkCL19"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="tel:+021955184">📞 +021 95-51-84</a>
+              <a href="mailto:shop@abelohost.com">📧 shop@abelohost.com</a>
+              <a href="https://maps.app.goo.gl/AT2xC49X5oqUkCL19" target="_blank" rel="noreferrer">
                 📍 1734 Stonecoal Road
               </a>
             </div>
             <div className={styles.topbar__right}>
-              <Link href="/login" className={styles.login}>
-                login
-              </Link>
+              {!user ? (
+                <Link href="/login" className={styles.login}>
+                  login
+                </Link>
+              ) : (
+                <div className={styles.user}>
+                  <span className={styles.user__name}>
+                    {user.firstName} {user.lastName}
+                  </span>
+                  <button
+                    onClick={logout}
+                    className={styles.user__logout}
+                    type="button"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -42,25 +56,39 @@ export default function Header() {
         <div className="container">
           <ul className={styles.menu__list}>
             <li className={styles.menu__item}>
-              <Link className={styles.menu__link} href="/">Home</Link>
+              <Link className={styles.menu__link} href="/">
+                Home
+              </Link>
             </li>
             <li className={styles.menu__item}>
-              <Link className={styles.menu__link} href="/deals">Hot Deals</Link>
+              <Link className={styles.menu__link} href="/deals">
+                Hot Deals
+              </Link>
             </li>
             <li className={styles.menu__item}>
-              <Link className={styles.menu__link} href="/categories">Categories</Link>
+              <Link className={styles.menu__link} href="/categories">
+                Categories
+              </Link>
             </li>
             <li className={styles.menu__item}>
-              <Link className={styles.menu__link} href="/laptops">Laptops</Link>
+              <Link className={styles.menu__link} href="/laptops">
+                Laptops
+              </Link>
             </li>
             <li className={styles.menu__item}>
-              <Link className={styles.menu__link} href="/smartphones">Smartphones</Link>
+              <Link className={styles.menu__link} href="/smartphones">
+                Smartphones
+              </Link>
             </li>
             <li className={styles.menu__item}>
-              <Link className={styles.menu__link} href="/cameras">Cameras</Link>
+              <Link className={styles.menu__link} href="/cameras">
+                Cameras
+              </Link>
             </li>
             <li className={styles.menu__item}>
-              <Link className={styles.menu__link} href="/accessories">Accessories</Link>
+              <Link className={styles.menu__link} href="/accessories">
+                Accessories
+              </Link>
             </li>
           </ul>
         </div>

@@ -22,7 +22,7 @@ export default function HomePage() {
     <section className={styles.section}>
       <div className="container">
         <div className={styles.section__inner}>
-          <h2>Название категории</h2>
+          <h2>Latest Products</h2>
           <div className={styles.cards}>
             {items.map((product) => (
               <ProductCard key={product.id} product={product} />
