@@ -1,0 +1,30 @@
+@use '../../../app/styles/variables' as *;
+
+.branding {
+  border-bottom: 3px solid $color-accent;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+
+  &__logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  &__dot {
+    color: $color-accent;
+  }
+
+  &__banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 70px;
+    background: $color-banner-bg;
+  }
+}

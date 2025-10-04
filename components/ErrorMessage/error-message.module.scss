@@ -1,0 +1,43 @@
+@use '../../app/styles/variables' as *;
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  &__inner {
+    text-align: center;
+    padding: 24px;
+    border: 1px solid #ffcccc;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d32f2f;
+    margin-bottom: 12px;
+  }
+
+  &__text {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #b71c1c;
+    }
+  }
+}

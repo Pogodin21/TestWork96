@@ -19,6 +19,7 @@ export const useProductsStore = create<ProductsState>((set) => ({
   async loadProducts() {
     try {
       set({ loading: true, error: null });
+      // РЕВ: 12 в константу вынести
       const data = await fetchProducts(12);
       set({ items: data.products, loading: false });
     } catch {

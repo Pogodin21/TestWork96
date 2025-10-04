@@ -1,0 +1,28 @@
+@use '../../../app/styles/variables' as *;
+
+.menu {
+  background: #fff;
+  padding: 0.75rem;
+  box-shadow: 0 2px 6px $color-shadow;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    color: $color-text;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}

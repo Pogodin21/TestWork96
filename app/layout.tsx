@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
-
 export const metadata: Metadata = {
   title: 'TestWork96',
   description: 'Тестовое задание',
@@ -14,9 +13,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <Header/>
+        <Header />
         <main>{children}</main>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

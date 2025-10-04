@@ -13,14 +13,13 @@ export default function Login() {
 
   const isValid = username.trim().length >= 3 && password.trim().length >= 3;
 
- 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isValid) return;
 
     try {
-      await login({ username, password }); 
-      router.push('/'); 
+      await login({ username, password });
+      router.push('/');
     } catch {
       // Ошибку стор уже записывает сам
     }
@@ -31,6 +30,9 @@ export default function Login() {
       <div className="container">
         <h2 className={styles.login__title}>Login</h2>
         <form className={styles.login__form} onSubmit={handleSubmit}>
+                  {/* РЕВ: поле вынести в отдельный компонент  мемоизировать его  
+                  (значит колбэки, входящие в него тоже мемоизирвать)*/}
+
           <div className={styles.login__field}>
             <input
               type="text"
@@ -38,10 +40,14 @@ export default function Login() {
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              // РЕВ: Тройку вынести в константу вне компонета.
+              //  Не должно быть магических чисел в коде (кто-то посмотрит и не поймёт откуда оно вообще)
               minLength={3}
               required
             />
           </div>
+        {/* РЕВ:_variables.scss поле вынести в отдельный компонент  мемоизировать его 
+        (значит колбэки, входящие в него тоже мемоизирвать) */}
 
           <div className={styles.login__field}>
             <input
@@ -50,20 +56,17 @@ export default function Login() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              // РЕВ: тут тоже тройку убрать в константу
               minLength={3}
               required
             />
           </div>
 
           {error && <p className={styles.login__error}>{error}</p>}
-
-          <button className={styles.login__button}>
-            {loading ? 'Loading…' : 'Login'}
-          </button>
+          {/* // РЕВ: type="submit" добавить к кнопке */}
+          <button className={styles.login__button}>{loading ? 'Loading…' : 'Login'}</button>
         </form>
       </div>
     </section>
   );
 }
-
-

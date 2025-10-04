@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useProductsStore } from '@/store/products';
 import styles from './page.module.scss';
 import ProductCard from '@/components/ProductCard';
+import Loader from '@/components/Loader';
+import ErrorMessage from '@/components/ErrorMessage';
 
 export default function HomePage() {
   const { items, loading, error, loadProducts } = useProductsStore();
@@ -12,10 +14,10 @@ export default function HomePage() {
   }, [loadProducts]);
 
   if (loading) {
-    return <div>Загрузка...</div>;
+    return <Loader />;
   }
   if (error) {
-    return <div>{error}</div>;
+    return <ErrorMessage message={error} />;
   }
 
   return (

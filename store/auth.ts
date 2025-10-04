@@ -11,7 +11,7 @@ type AuthState = {
   token: string | null;
   loading: boolean;
   error: string | null;
-  login: (payload: LoginPayload) => Promise<void>;
+  login: (payload: LoginPayload) => Promise<void>;  
   logout: () => void;
 };
 
