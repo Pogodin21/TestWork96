@@ -1,4 +1,4 @@
-@use  '../../app/styles/variables' as *;
+@use '../../app/styles/variables' as *;
 
 .header {
   width: 100%;
@@ -19,13 +19,81 @@
 
   &__left {
     display: flex;
+    align-items: center;
     gap: 15px;
   }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* === Login / User === */
+.login {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #fff;
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__logout {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+/* === Фиксация размеров иконок === */
+.login__icon,
+.user__icon {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px;
+  min-height: 16px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
 
 /* === Branding === */
 .branding {
-  border-bottom: $color-accent solid 3px;
+  border-bottom: 3px solid $color-accent;
 
   &__inner {
     display: flex;
@@ -33,6 +101,7 @@
     justify-content: space-between;
     padding: 15px 0;
   }
+
   &__logo {
     font-size: 1.8rem;
     font-weight: bold;
@@ -42,7 +111,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 600px;
     height: 70px;
     background: $color-banner-bg;
@@ -51,14 +119,12 @@
 
 /* === Menu === */
 .menu {
-  gap: 2rem;
   background: #fff;
   padding: 0.75rem;
   box-shadow: 0 2px 6px $color-shadow;
 
   &__list {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     gap: 15px;
   }
@@ -71,7 +137,7 @@
     color: $color-text;
     font-weight: 500;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 
     &:hover {
       color: $color-accent;

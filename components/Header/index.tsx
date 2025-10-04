@@ -3,25 +3,65 @@
 import Link from 'next/link';
 import styles from './header.module.scss';
 import { useAuthStore } from '@/store/auth';
+import Image from 'next/image';
 
 export default function Header() {
   const { user, logout } = useAuthStore();
-  
+
   return (
     <header className={styles.header}>
       <div className={styles.topbar}>
         <div className="container">
           <div className={styles.topbar__inner}>
             <div className={styles.topbar__left}>
-              <a href="tel:+021955184">📞 +021 95-51-84</a>
-              <a href="mailto:shop@abelohost.com">📧 shop@abelohost.com</a>
-              <a href="https://maps.app.goo.gl/AT2xC49X5oqUkCL19" target="_blank" rel="noreferrer">
-                📍 1734 Stonecoal Road
+              <a href="tel:+021955184" className={styles.topbar__link}>
+                <Image
+                  src="/icons/phone.png"
+                  alt="Phone"
+                  width={20}
+                  height={20}
+                  className={styles.topbar__icon}
+                />
+                +021 95-51-84
+              </a>
+
+              <a href="mailto:shop@abelohost.com" className={styles.topbar__link}>
+                <Image
+                  src="/icons/mail.png"
+                  alt="Email"
+                  width={20}
+                  height={20}
+                  className={styles.topbar__icon}
+                />
+                shop@abelohost.com
+              </a>
+
+              <a
+                href="https://maps.app.goo.gl/AT2xC49X5oqUkCL19"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.topbar__link}
+              >
+                <Image
+                  src="/icons/map.png"
+                  alt="Location"
+                  width={20}
+                  height={20}
+                  className={styles.topbar__icon}
+                />
+                1734 Stonecoal Road
               </a>
             </div>
             <div className={styles.topbar__right}>
               {!user ? (
                 <Link href="/login" className={styles.login}>
+                  <Image
+                    src="/icons/user.png"
+                    alt="User icon"
+                    width={20}
+                    height={206}
+                    className={styles.login__icon}
+                  />
                   login
                 </Link>
               ) : (
@@ -29,11 +69,16 @@ export default function Header() {
                   <span className={styles.user__name}>
                     {user.firstName} {user.lastName}
                   </span>
-                  <button
-                    onClick={logout}
-                    className={styles.user__logout}
-                    type="button"
-                  >
+
+                  <Image
+                    src="/icons/user.png"
+                    alt="User icon"
+                    width={20}
+                    height={20}
+                    className={styles.user__icon}
+                  />
+
+                  <button onClick={logout} className={styles.user__logout} type="button">
                     Logout
                   </button>
                 </div>
